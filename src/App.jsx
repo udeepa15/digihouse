@@ -4,6 +4,7 @@ import { Header } from "./components/header";
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
 import "./App.css";
+
 const Features = React.lazy(() => import("./components/features").then(m => ({ default: m.Features })));
 const About = React.lazy(() => import("./components/about").then(m => ({ default: m.About })));
 const Services = React.lazy(() => import("./components/services").then(m => ({ default: m.Services })));
