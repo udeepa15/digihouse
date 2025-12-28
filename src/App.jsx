@@ -5,16 +5,16 @@ import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
 import "./App.css";
 
+export const scroll = new SmoothScroll('a[href*="#"]', {
+  speed: 1000,
+  speedAsDuration: true,
+});
+
 const Features = React.lazy(() => import("./components/features").then(m => ({ default: m.Features })));
 const About = React.lazy(() => import("./components/about").then(m => ({ default: m.About })));
 const Services = React.lazy(() => import("./components/services").then(m => ({ default: m.Services })));
 const Gallery = React.lazy(() => import("./components/gallery").then(m => ({ default: m.Gallery })));
 const Contact = React.lazy(() => import("./components/contact").then(m => ({ default: m.Contact })));
-
-export const scroll = new SmoothScroll('a[href*="#"]', {
-  speed: 1000,
-  speedAsDuration: true,
-});
 
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({});
