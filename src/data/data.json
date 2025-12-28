@@ -82,9 +82,9 @@
       "text": "Personalized mugs for gifts, corporate giveaways, and special occasions. High-quality prints that are dishwasher safe and long-lasting."
     },
     {
-      "icon": "fa fa-id-card",
+      "icon": "fa fa-credit-card",
       "name": "ID Card Printing",
-      "text": "Professional employee and student ID cards with high-quality printing. Durable cards for institutions, offices, and organizations."
+      "text": "Plastic ID cards, membership cards, barcode cards, and visitor passes with professional finishes. Suitable for institutions, offices, and organizations."
     },
     {
       "icon": "fa fa-camera",
@@ -95,6 +95,66 @@
       "icon": "fa fa-plane",
       "name": "Passport Photos",
       "text": "Official passport photo services compliant with international standards. Fast service with guaranteed acceptance for visa and passport applications."
+    },
+    {
+      "icon": "fa fa-tags",
+      "name": "Flex & Sticker",
+      "text": "High-quality flex and sticker printing for signage, branding, and promotions. Weather-resistant materials with vivid colors."
+    },
+    {
+      "icon": "fa fa-book",
+      "name": "Books, Leaflets & Brochures",
+      "text": "Design and print books, leaflets, and brochures with premium paper options and professional binding."
+    },
+    {
+      "icon": "fa fa-certificate",
+      "name": "Pin-on Badges",
+      "text": "Custom pin-on badges for events, schools, and organizations. Durable materials and clear printing."
+    },
+    {
+      "icon": "fa fa-graduation-cap",
+      "name": "T-shirts & Caps",
+      "text": "Branded T-shirts and caps with screen printing or heat transfer. Perfect for teams and promotions."
+    },
+    {
+      "icon": "fa fa-credit-card",
+      "name": "Visiting Cards",
+      "text": "Professional visiting cards with premium finishes and custom designs."
+    },
+    {
+      "icon": "fa fa-certificate",
+      "name": "Certificates",
+      "text": "Official certificates with high-quality printing and emboss options."
+    },
+    {
+      "icon": "fa fa-envelope",
+      "name": "Greeting & Invitation Cards",
+      "text": "Custom greeting and invitation cards for weddings, events, and special occasions."
+    },
+    {
+      "icon": "fa fa-file-text-o",
+      "name": "Letter Heads",
+      "text": "Professional letter heads for businesses with crisp printing and quality paper."
+    },
+    {
+      "icon": "fa fa-cutlery",
+      "name": "Menu Cards",
+      "text": "Restaurant menu cards with durable lamination and vibrant designs."
+    },
+    {
+      "icon": "fa fa-tag",
+      "name": "Packing Cover Labels",
+      "text": "Custom labels and packing cover prints for retail and logistics."
+    },
+    {
+      "icon": "fa fa-camera",
+      "name": "Photo Printing & Group Photography",
+      "text": "High-quality photo prints and group photography services for events and institutions."
+    },
+    {
+      "icon": "fa fa-book",
+      "name": "Book Covers & Projects",
+      "text": "Design and print book covers and academic projects with premium finishes."
     }
   ],
   "Testimonials": [
