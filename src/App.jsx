@@ -1,6 +1,11 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect } from "react";
 import { Navigation } from "./components/navigation";
 import { Header } from "./components/header";
+import { Features } from "./components/features";
+import { About } from "./components/about";
+import { Services } from "./components/services";
+import { Gallery } from "./components/gallery";
+import { Contact } from "./components/contact";
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
 import "./App.css";
@@ -9,12 +14,6 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
   speedAsDuration: true,
 });
-
-const Features = React.lazy(() => import("./components/features").then(m => ({ default: m.Features })));
-const About = React.lazy(() => import("./components/about").then(m => ({ default: m.About })));
-const Services = React.lazy(() => import("./components/services").then(m => ({ default: m.Services })));
-const Gallery = React.lazy(() => import("./components/gallery").then(m => ({ default: m.Gallery })));
-const Contact = React.lazy(() => import("./components/contact").then(m => ({ default: m.Contact })));
 
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({});
@@ -26,21 +25,11 @@ const App = () => {
     <div>
       <Navigation />
       <Header data={landingPageData.Header} />
-      <Suspense fallback={<div className="loading">Loading…</div>}>
-        <Features data={landingPageData.Features} />
-      </Suspense>
-      <Suspense fallback={<div className="loading">Loading…</div>}>
-        <About data={landingPageData.About} />
-      </Suspense>
-      <Suspense fallback={<div className="loading">Loading…</div>}>
-        <Services data={landingPageData.Services} />
-      </Suspense>
-      <Suspense fallback={<div className="loading">Loading…</div>}>
-        <Gallery data={landingPageData.Gallery} />
-      </Suspense>
-      <Suspense fallback={<div className="loading">Loading…</div>}>
-        <Contact data={landingPageData.Contact} />
-      </Suspense>
+      <Features data={landingPageData.Features} />
+      <About data={landingPageData.About} />
+      <Services data={landingPageData.Services} />
+      <Gallery data={landingPageData.Gallery} />
+      <Contact data={landingPageData.Contact} />
     </div>
   );
 };
