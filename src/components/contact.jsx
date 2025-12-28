@@ -1,5 +1,4 @@
 import { useState } from "react";
-import emailjs from "emailjs-com";
 import React from "react";
 
 const initialState = {
@@ -19,21 +18,12 @@ export const Contact = (props) => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, email, message);
-    
-    {/* replace below with your own Service ID, Template ID and Public Key from your EmailJS account */ }
-    
-    emailjs
-      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_PUBLIC_KEY")
-      .then(
-        (result) => {
-          console.log(result.text);
-          clearState();
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    // Open WhatsApp with the form details
+    const whatsappNumber = props.data && props.data.whatsapp ? props.data.whatsapp : "94772920945";
+    const text = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+    clearState();
   };
   return (
     <div>
@@ -111,9 +101,23 @@ export const Contact = (props) => {
             <div className="contact-item">
               <p>
                 <span>
-                  <i className="fa fa-phone"></i> Phone
+                  <i className="fa fa-phone"></i> Telephone
                 </span>{" "}
-                {props.data ? props.data.phone : "loading"}
+                {props.data
+                  ? props.data.tele
+                    ? props.data.tele.join(" / ")
+                    : props.data.phone
+                    ? props.data.phone
+                    : "loading"
+                  : "loading"}
+              </p>
+            </div>
+            <div className="contact-item">
+              <p>
+                <span>
+                  <i className="fa fa-fax"></i> Fax
+                </span>{" "}
+                {props.data && props.data.fax ? props.data.fax : "loading"}
               </p>
             </div>
             <div className="contact-item">
@@ -121,7 +125,23 @@ export const Contact = (props) => {
                 <span>
                   <i className="fa fa-envelope-o"></i> Email
                 </span>{" "}
-                {props.data ? props.data.email : "loading"}
+                {props.data
+                  ? props.data.emails
+                    ? props.data.emails.join(", ")
+                    : props.data.email
+                    ? props.data.email
+                    : "loading"
+                  : "loading"}
+              </p>
+            </div>
+            <div className="contact-item">
+              <p>
+                <span>
+                  <i className="fa fa-clock-o"></i> Working Hours
+                </span>{" "}
+                {props.data && props.data.hours
+                  ? `Weekdays: ${props.data.hours.weekdays} | Saturday: ${props.data.hours.saturday} | Sunday: ${props.data.hours.sunday}`
+                  : "loading"}
               </p>
             </div>
           </div>
@@ -156,7 +176,13 @@ export const Contact = (props) => {
             &copy; 2025 ADL Digihouse. All Rights Reserved.
           </p>
           <p style={{marginTop: "10px", fontSize: "14px"}}>
-            No 25, 1st Floor, YMBA Complex, Borella, Colombo 08, Sri Lanka | Tel: 011 268 7456
+            {props.data ? props.data.address : "No 25, 1st Floor, YMBA Complex, Borella, Colombo 08, Sri Lanka"} | Tel: {props.data
+              ? props.data.tele
+                ? props.data.tele.join(" / ")
+                : props.data.phone
+                ? props.data.phone
+                : "011 268 7456"
+              : "011 268 7456"}{props.data && props.data.fax ? ` | Fax: ${props.data.fax}` : ""}
           </p>
         </div>
       </div>
