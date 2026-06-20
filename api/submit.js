@@ -54,7 +54,7 @@ module.exports = async function handler(req, res) {
         console.log("Uploading file to Vercel Blob:", imageFile.originalFilename);
         const fileBuffer = fs.readFileSync(imageFile.filepath);
         const blob = await put(imageFile.originalFilename, fileBuffer, {
-          access: 'public',
+          access: 'private',
         });
         imageUrl = blob.url;
         console.log("Vercel Blob upload success. URL:", imageUrl);
