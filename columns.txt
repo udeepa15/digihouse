@@ -1,0 +1,33 @@
+========================================================================
+GOOGLE SHEETS COLUMNS FOR DIGIHOUSE APPLICATION FORMS
+========================================================================
+
+Below is the list of all columns required in your Google Sheet to capture
+every field across both application types (Doctor and Office Workers),
+including submission metadata.
+
+Row 1 (Headers) should contain these exact columns in your sheet:
+
+1.  Application Type       (e.g., doctor, office)
+2.  Application Title      (e.g., Hospital Registration, Office Workers)
+3.  Submitted At           (Timestamp of submission)
+4.  Name with Initials      (nameWithInitials / fullName)
+5.  NIC                    (nic)
+6.  Gender                 (gender)
+7.  Age                    (age)
+8.  Date of Birth          (birthday)
+9.  Designation / Position (designation / position)
+10. Division / Ward        (divisionWard)
+11. Employee Number        (employeeNo)
+12. Department             (department)
+13. Company Name           (companyName)
+14. Years of Experience    (experienceYears)
+15. Skills / Tools         (skills)
+16. Address                (address)
+17. Mobile / Phone Number  (mobileNumber / phone)
+18. Email                  (email)
+19. Signature Image URL    (signatureFile upload URL)
+20. Photo Image URL        (photoFile upload URL)
+21. Studio Photo No.       (studioPhotoNo)
+22. Reference No.          (referenceNo)
+========================================================================

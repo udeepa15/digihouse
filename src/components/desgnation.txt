@@ -1,0 +1,131 @@
+No	Designation
+1	Accountant
+2	Acting Overseer
+3	Administrative Officer
+4	Ambulance Driver
+5	Assistant Superintendent of Audit
+6	Attendant
+7	Audit Officer
+8	Cardiographer
+9	Cardiologist
+10	Caregiver
+11	Chief Medical Laboratory Technologist
+12	Chief Occupational Therapist
+13	Chief Overseer Special Grade
+14	Chief Public Health Management Assistant
+15	Chief Special Grade Nursing Officer
+16	Chief Special Grade Pharmacist
+17	Consultant Anaesthetist
+18	Consultant Cancer Surgeon
+19	Consultant Cardiologist
+20	Consultant Cardiothoracic Surgeon
+21	Consultant Chemical Pathologist
+22	Consultant Chemical Physician
+23	Consultant Clinical Geneticist
+24	Consultant Clinical Microbiologist
+25	Consultant Clinical Nutrition Physician
+26	Consultant Clinical Oncologist
+27	Consultant Clinical Onwloant
+28	Consultant Dermatologist
+29	Consultant Emergency Physician
+30	Consultant Endocrinologist
+31	Consultant ENT Surgeon
+32	Consultant Eye Surgeon
+33	Consultant Gastroenterologist
+34	Consultant General Surgeon
+35	Consultant Genito Urinary Surgeon
+36	Consultant Hematologists
+37	Consultant Histopathologist
+38	Consultant in Community Dentistry
+39	Consultant Interventional Radiologist
+40	Consultant Mycologist
+41	Consultant Neurologist
+42	Consultant Neurosurgeon
+43	Consultant Nutrition Physician
+44	Consultant Obstetrician and Gynecologist
+45	Consultant Oncologist
+46	Consultant Onco-Surgeon
+47	Consultant Ophthalmologist
+48	Consultant Oral & Maxillofacial Surgeon
+49	Consultant Orthodontist
+50	Consultant Orthopedic Surgeon
+51	Consultant Paediatric Oncologist
+52	Consultant Pediatric Clinical Geneticist
+53	Consultant Pediatric Endocrinologist
+54	Consultant Pediatric Intensivist  
+55	Consultant Pediatric Neurology
+56	Consultant Pediatric Surgeon
+57	Consultant Pediatrician
+58	Consultant Physician
+59	Consultant Psychiatrist
+60	Consultant Radiologist
+61	Consultant Resident Physician
+62	Consultant Respiratory Physician
+63	Consultant Surgeon
+64	Consultant Thoracic Surgeon
+65	Consultant Transfusion Physician
+66	Cook
+67	Dental Surgeon
+68	Dental Technician
+69	Dental Technologist
+70	Deputy Director
+71	Development Officer
+72	Diet Stewardess
+73	Director
+74	Dispensing Officer
+75	Driver
+76	EEG Technician
+77	Electroencephalographer
+78	Emergency Physician
+79	ENT Assistant
+80	Generator Operator
+81	Health Assistant
+82	Health Driver
+83	Health Service Aid
+84	Health Service Aid (Junior)
+85	Health Service Aid (Ordinary)
+86	Hospital Secretary
+87	House Warden
+88	I.C.T. Assistant
+89	Intern House Officer
+90	Lab Assistant
+91	Lift Operator
+92	Machine Operator
+93	Medical Laboratory Scientist
+94	Medical Laboratory Technologist
+95	Medical Officer
+96	Nursing Officer
+97	Nursing Sister
+98	Occupational Therapist
+99	Office Employee Service
+100	Ophthalmic Technologist
+101	Orthoptic Technician
+102	Overseer
+103	Perfusionist
+104	Pharmacist
+105	Physiotherapist
+106	Principal
+107	Public Health Inspector
+108	Public Health Management Assistant
+109	Public Health Midwife
+110	Radiation Therapist
+111	Radiographer
+112	Registrar
+113	Seamstress Operator
+114	Senior Hospital Dental Officer
+115	Senior House Officer
+116	Senior Registrar
+117	Sewing Operator
+118	SHO
+119	Special Garde Nursing Officer
+120	Special Grade Midwife 
+121	Special Grade Overseer
+122	Speech and Language Therapist
+123	Student Nurse
+124	Superintendent Occupational Therapist
+125	Superintendent of Audit
+126	Superintendent Radiographer
+127	Technical Officer
+128	Telephone Operator
+129	Trainee Cardiographer
+130	Ward Clerk

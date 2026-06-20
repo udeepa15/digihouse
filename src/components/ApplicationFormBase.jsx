@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import "./ApplicationFormBase.css";
 
-const endpoint = process.env.REACT_APP_APPLICATIONS_WEBHOOK_URL;
+const endpoint = process.env.REACT_APP_APPLICATIONS_WEBHOOK_URL || "/api/submit";
 
 const createInitialState = (fields) =>
   fields.reduce((accumulator, field) => {
@@ -91,43 +91,32 @@ export const ApplicationFormBase = ({ application }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!endpoint) {
-      setStatus({
-        type: "error",
-        message:
-          "Set REACT_APP_APPLICATIONS_WEBHOOK_URL to connect this form to your spreadsheet updater.",
-      });
-      return;
-    }
-
     setIsSubmitting(true);
     setStatus({ type: "idle", message: "" });
 
-    const payload = {
-      applicationType: application.key,
-      applicationTitle: application.title,
-      submittedAt: new Date().toISOString(),
-      ...formData,
-    };
-
     try {
+      const formDataToSend = new FormData(event.currentTarget);
+      formDataToSend.append("applicationType", application.key);
+      formDataToSend.append("applicationTitle", application.title);
+      formDataToSend.append("submittedAt", new Date().toISOString());
+
       const response = await fetch(endpoint, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
+        body: formDataToSend,
       });
 
-      if (!response.ok) {
-        throw new Error(`Submission failed with status ${response.status}`);
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || (result && result.success === false)) {
+        throw new Error(result.error || `Submission failed with status ${response.status}`);
       }
 
       setStatus({
         type: "success",
-        message: "Application submitted successfully and sent to the configured spreadsheet endpoint.",
+        message: "Application submitted successfully and saved to Google Sheets with Vercel Blob uploads.",
       });
       setFormData(initialState);
+      event.currentTarget.reset();
     } catch (error) {
       setStatus({
         type: "error",
