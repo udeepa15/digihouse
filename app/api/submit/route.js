@@ -26,10 +26,25 @@ export async function POST(request) {
     }
 
     console.log("Initializing Google Sheets Auth...");
+    let privateKey = process.env.GOOGLE_PRIVATE_KEY;
+    if (privateKey) {
+      privateKey = privateKey.trim();
+      if (privateKey.startsWith('"')) {
+        privateKey = privateKey.substring(1);
+      }
+      if (privateKey.endsWith(',')) {
+        privateKey = privateKey.substring(0, privateKey.length - 1).trim();
+      }
+      if (privateKey.endsWith('"')) {
+        privateKey = privateKey.substring(0, privateKey.length - 1);
+      }
+      privateKey = privateKey.replace(/\\n/g, '\n');
+    }
+
     const auth = new google.auth.GoogleAuth({
       credentials: {
         client_email: process.env.GOOGLE_CLIENT_EMAIL,
-        private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+        private_key: privateKey,
       },
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
