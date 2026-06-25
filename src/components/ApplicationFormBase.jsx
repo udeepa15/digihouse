@@ -94,11 +94,44 @@ export const ApplicationFormBase = ({ application }) => {
     setIsSubmitting(true);
     setStatus({ type: "idle", message: "" });
 
+    // Validate NIC (allow only 10 or 12 characters)
+    const nicFields = application.fields.filter((f) => f.name === "nic");
+    for (const field of nicFields) {
+      const value = (formData[field.name] || "").trim();
+      if (value && value.length !== 10 && value.length !== 12) {
+        setStatus({
+          type: "error",
+          message: "NIC must be exactly 10 or 12 characters.",
+        });
+        setIsSubmitting(false);
+        return;
+      }
+    }
+
+    // Validate Mobile/Phone (allow only 10 digits)
+    const phoneFields = application.fields.filter(
+      (f) => f.type === "tel" || f.name === "mobileNumber" || f.name === "phone"
+    );
+    for (const field of phoneFields) {
+      const value = (formData[field.name] || "").trim();
+      if (value && !/^\d{10}$/.test(value)) {
+        setStatus({
+          type: "error",
+          message: `${field.label} must be exactly 10 digits (numbers only).`,
+        });
+        setIsSubmitting(false);
+        return;
+      }
+    }
+
+    const appNumber = `DH-2026-${Math.floor(100000 + Math.random() * 900000)}`;
+
     try {
       const formDataToSend = new FormData(event.currentTarget);
       formDataToSend.append("applicationType", application.key);
       formDataToSend.append("applicationTitle", application.title);
       formDataToSend.append("submittedAt", new Date().toISOString());
+      formDataToSend.append("applicationNumber", appNumber);
 
       const response = await fetch(endpoint, {
         method: "POST",
@@ -113,7 +146,7 @@ export const ApplicationFormBase = ({ application }) => {
 
       setStatus({
         type: "success",
-        message: "Application submitted successfully and saved to Google Sheets with Vercel Blob uploads.",
+        message: `Application submitted successfully! Your unique Application Number is ${appNumber}. Details have been saved.`,
       });
       setFormData(initialState);
       event.currentTarget.reset();

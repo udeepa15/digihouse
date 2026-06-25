@@ -39,27 +39,50 @@ module.exports = async function handler(req, res) {
       return val || '';
     };
 
-    const name = getField('name') || getField('fullName') || getField('nameWithInitials') || '';
-    const email = getField('email') || '';
-
-    // Extract any uploaded file
-    const fileKeys = Object.keys(files);
-    let imageUrl = '';
-
-    if (fileKeys.length > 0) {
-      const fileKey = fileKeys[0];
-      const imageFile = Array.isArray(files[fileKey]) ? files[fileKey][0] : files[fileKey];
-
+    // Helper function to upload file to Vercel Blob
+    const uploadFile = async (fieldKey) => {
+      const fileData = files[fieldKey];
+      if (!fileData) return '';
+      const imageFile = Array.isArray(fileData) ? fileData[0] : fileData;
       if (imageFile && imageFile.originalFilename) {
-        console.log("Uploading file to Vercel Blob:", imageFile.originalFilename);
+        console.log(`Uploading file ${fieldKey} to Vercel Blob:`, imageFile.originalFilename);
         const fileBuffer = fs.readFileSync(imageFile.filepath);
         const blob = await put(imageFile.originalFilename, fileBuffer, {
           access: 'private',
         });
-        imageUrl = blob.url;
-        console.log("Vercel Blob upload success. URL:", imageUrl);
+        console.log(`Vercel Blob upload success for ${fieldKey}. URL:`, blob.url);
+        return blob.url;
       }
-    }
+      return '';
+    };
+
+    const signatureUrl = await uploadFile('signatureFile');
+    const photoUrl = await uploadFile('photoFile');
+    const genericImageUrl = await uploadFile('image'); // Support fallback/legacy single image if present
+
+    const applicationNumber = getField('applicationNumber');
+    const applicationType = getField('applicationType');
+    const applicationTitle = getField('applicationTitle');
+    const submittedAt = getField('submittedAt') || new Date().toLocaleString();
+    const name = getField('nameWithInitials') || getField('fullName') || getField('name') || '';
+    const nic = getField('nic');
+    const gender = getField('gender');
+    const age = getField('age');
+    const birthday = getField('birthday');
+    const designation = getField('designation') || getField('position') || '';
+    const divisionWard = getField('divisionWard');
+    const employeeNo = getField('employeeNo');
+    const department = getField('department');
+    const companyName = getField('companyName');
+    const experienceYears = getField('experienceYears');
+    const skills = getField('skills');
+    const address = getField('address');
+    const phone = getField('mobileNumber') || getField('phone') || '';
+    const email = getField('email') || '';
+    const signatureImageUrl = signatureUrl || genericImageUrl || '';
+    const photoImageUrl = photoUrl || '';
+    const studioPhotoNo = getField('studioPhotoNo');
+    const referenceNo = getField('referenceNo');
 
     console.log("Initializing Google Sheets Auth...");
     let privateKey = process.env.GOOGLE_PRIVATE_KEY;
@@ -87,7 +110,33 @@ module.exports = async function handler(req, res) {
 
     const sheets = google.sheets({ version: 'v4', auth });
     const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID || process.env.GOOGLE_SHEET_ID;
-    const range = 'Sheet1!A:D';
+    const range = 'Sheet1!A:W';
+
+    const row = [
+      applicationNumber,
+      applicationType,
+      applicationTitle,
+      submittedAt,
+      name,
+      nic,
+      gender,
+      age,
+      birthday,
+      designation,
+      divisionWard,
+      employeeNo,
+      department,
+      companyName,
+      experienceYears,
+      skills,
+      address,
+      phone,
+      email,
+      signatureImageUrl,
+      photoImageUrl,
+      studioPhotoNo,
+      referenceNo
+    ];
 
     console.log("Appending row to Google Sheet ID:", spreadsheetId);
     const result = await sheets.spreadsheets.values.append({
@@ -95,14 +144,12 @@ module.exports = async function handler(req, res) {
       range,
       valueInputOption: 'USER_ENTERED',
       requestBody: {
-        values: [
-          [name, email, imageUrl, new Date().toLocaleString()]
-        ],
+        values: [row],
       },
     });
     console.log("Google Sheets append success status:", result.status);
 
-    return res.status(200).json({ success: true, imageUrl });
+    return res.status(200).json({ success: true, imageUrl: signatureImageUrl || photoImageUrl });
   } catch (error) {
     console.error('Error submitting form in /api/submit serverless function:', error);
     return res.status(500).json({ success: false, error: error.message });
