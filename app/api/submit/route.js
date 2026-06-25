@@ -10,13 +10,24 @@ export async function POST(request) {
     
     const getField = (name) => formData.get(name) || '';
 
-    const uploadFile = async (fieldKey) => {
+    // Helper function to extract file extension
+    const getExtension = (filename) => {
+      const parts = filename.split('.');
+      return parts.length > 1 ? `.${parts.pop()}` : '';
+    };
+
+    const applicationNumber = getField('applicationNumber') || 'unknown';
+
+    const uploadFile = async (fieldKey, suffix) => {
       const file = formData.get(fieldKey);
       if (file && file.name) {
-        console.log(`Uploading file ${fieldKey} to Vercel Blob:`, file.name);
-        const blob = await put(file.name, file, {
+        const ext = getExtension(file.name);
+        const newFilename = `${applicationNumber}_${suffix}${ext}`;
+        console.log(`Uploading file ${fieldKey} to Vercel Blob as ${newFilename}`);
+        const blob = await put(newFilename, file, {
           access: 'private',
           multipart: true,
+          addRandomSuffix: true,
         });
         console.log(`Vercel Blob upload success for ${fieldKey}. URL:`, blob.url);
         return blob.url;
@@ -24,11 +35,10 @@ export async function POST(request) {
       return '';
     };
 
-    const signatureUrl = await uploadFile('signatureFile');
-    const photoUrl = await uploadFile('photoFile');
-    const genericImageUrl = await uploadFile('image');
+    const signatureUrl = await uploadFile('signatureFile', 'sig');
+    const photoUrl = await uploadFile('photoFile', 'passport');
+    const genericImageUrl = await uploadFile('image', 'img');
 
-    const applicationNumber = getField('applicationNumber');
     const applicationType = getField('applicationType');
     const applicationTitle = getField('applicationTitle');
     const submittedAt = getField('submittedAt') || new Date().toLocaleString();

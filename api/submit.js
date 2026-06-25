@@ -39,16 +39,27 @@ module.exports = async function handler(req, res) {
       return val || '';
     };
 
+    // Helper function to extract file extension
+    const getExtension = (filename) => {
+      const parts = filename.split('.');
+      return parts.length > 1 ? `.${parts.pop()}` : '';
+    };
+
+    const applicationNumber = getField('applicationNumber') || 'unknown';
+
     // Helper function to upload file to Vercel Blob
-    const uploadFile = async (fieldKey) => {
+    const uploadFile = async (fieldKey, suffix) => {
       const fileData = files[fieldKey];
       if (!fileData) return '';
       const imageFile = Array.isArray(fileData) ? fileData[0] : fileData;
       if (imageFile && imageFile.originalFilename) {
-        console.log(`Uploading file ${fieldKey} to Vercel Blob:`, imageFile.originalFilename);
+        const ext = getExtension(imageFile.originalFilename);
+        const newFilename = `${applicationNumber}_${suffix}${ext}`;
+        console.log(`Uploading file ${fieldKey} to Vercel Blob as ${newFilename}`);
         const fileBuffer = fs.readFileSync(imageFile.filepath);
-        const blob = await put(imageFile.originalFilename, fileBuffer, {
+        const blob = await put(newFilename, fileBuffer, {
           access: 'private',
+          addRandomSuffix: true,
         });
         console.log(`Vercel Blob upload success for ${fieldKey}. URL:`, blob.url);
         return blob.url;
@@ -56,11 +67,10 @@ module.exports = async function handler(req, res) {
       return '';
     };
 
-    const signatureUrl = await uploadFile('signatureFile');
-    const photoUrl = await uploadFile('photoFile');
-    const genericImageUrl = await uploadFile('image'); // Support fallback/legacy single image if present
+    const signatureUrl = await uploadFile('signatureFile', 'sig');
+    const photoUrl = await uploadFile('photoFile', 'passport');
+    const genericImageUrl = await uploadFile('image', 'img'); // Support fallback/legacy single image if present
 
-    const applicationNumber = getField('applicationNumber');
     const applicationType = getField('applicationType');
     const applicationTitle = getField('applicationTitle');
     const submittedAt = getField('submittedAt') || new Date().toLocaleString();

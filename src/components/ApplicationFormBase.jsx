@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import emailjs from "emailjs-com";
 import "./ApplicationFormBase.css";
 
 const endpoint = process.env.REACT_APP_APPLICATIONS_WEBHOOK_URL || "/api/submit";
@@ -101,7 +102,7 @@ export const ApplicationFormBase = ({ application }) => {
       if (value && value.length !== 10 && value.length !== 12) {
         setStatus({
           type: "error",
-          message: "NIC must be exactly 10 or 12 characters.",
+          message: "NIC must be exactly 10 or 12 characters. / ජාතික හැඳුනුම්පත් අංකය අක්ෂර 10ක් හෝ 12ක් විය යුතුය.",
         });
         setIsSubmitting(false);
         return;
@@ -115,9 +116,10 @@ export const ApplicationFormBase = ({ application }) => {
     for (const field of phoneFields) {
       const value = (formData[field.name] || "").trim();
       if (value && !/^\d{10}$/.test(value)) {
+        const labelSinhala = field.name === "mobileNumber" ? "ජංගම දුරකථන අංකය" : "දුරකථන අංකය";
         setStatus({
           type: "error",
-          message: `${field.label} must be exactly 10 digits (numbers only).`,
+          message: `${field.label} must be exactly 10 digits (numbers only). / ${labelSinhala} ඉලක්කම් 10ක් විය යුතුය.`,
         });
         setIsSubmitting(false);
         return;
@@ -148,6 +150,38 @@ export const ApplicationFormBase = ({ application }) => {
         type: "success",
         message: `Application submitted successfully! Your unique Application Number is ${appNumber}. Details have been saved.`,
       });
+
+      // Send confirmation email via EmailJS if configured
+      const emailjsServiceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+      const emailjsTemplateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+      const emailjsPublicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+
+      if (emailjsServiceId && emailjsTemplateId && emailjsPublicKey) {
+        const applicantEmail = formData.email || "";
+        const applicantName = formData.nameWithInitials || formData.fullName || "";
+
+        if (applicantEmail) {
+          const templateParams = {
+            to_name: applicantName,
+            to_email: applicantEmail,
+            application_number: appNumber,
+            application_title: application.title,
+            submitted_at: new Date().toLocaleString(),
+          };
+
+          emailjs
+            .send(emailjsServiceId, emailjsTemplateId, templateParams, emailjsPublicKey)
+            .then((response) => {
+              console.log("Email sent successfully via EmailJS!", response.status, response.text);
+            })
+            .catch((error) => {
+              console.error("Failed to send email via EmailJS:", error);
+            });
+        }
+      } else {
+        console.warn("EmailJS configuration missing in environment variables. Confirmation email skipped.");
+      }
+
       setFormData(initialState);
       event.currentTarget.reset();
     } catch (error) {
