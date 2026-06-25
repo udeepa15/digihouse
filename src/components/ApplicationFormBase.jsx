@@ -91,6 +91,7 @@ export const ApplicationFormBase = ({ application }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const formElement = event.currentTarget;
 
     setIsSubmitting(true);
     setStatus({ type: "idle", message: "" });
@@ -129,7 +130,7 @@ export const ApplicationFormBase = ({ application }) => {
     const appNumber = `DH-2026-${Math.floor(100000 + Math.random() * 900000)}`;
 
     try {
-      const formDataToSend = new FormData(event.currentTarget);
+      const formDataToSend = new FormData(formElement);
       formDataToSend.append("applicationType", application.key);
       formDataToSend.append("applicationTitle", application.title);
       formDataToSend.append("submittedAt", new Date().toISOString());
@@ -183,7 +184,7 @@ export const ApplicationFormBase = ({ application }) => {
       }
 
       setFormData(initialState);
-      event.currentTarget.reset();
+      formElement.reset();
     } catch (error) {
       setStatus({
         type: "error",
