@@ -6,66 +6,68 @@
 
 .official-form-sheet {
   background: #ffffff;
-  border: 1px solid #d4d4d4;
+  border: 1px solid #e0e0e0;
   border-radius: 6px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  padding: 32px 34px;
-  color: #1d1d1d;
-  font-family: "Open Sans", "Segoe UI", sans-serif;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  padding: 36px 40px;
+  color: #212121;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .official-form-header {
-  border-bottom: 1px solid #cfcfcf;
-  margin-bottom: 18px;
-  padding-bottom: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
   text-align: center;
 }
 
 .official-form-header h1 {
   margin: 0;
-  color: #111111;
-  font-size: 30px;
-  font-weight: 700;
+  color: #212121;
+  font-size: 26px;
+  font-weight: 800;
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 
 .official-form-header h2 {
   margin: 8px 0 0;
-  color: #2a2a2a;
-  font-size: 16px;
-  font-weight: 600;
+  color: #0097a7;
+  font-size: 15px;
+  font-weight: 700;
   letter-spacing: 0.3px;
 }
 
 .official-form-header p {
   margin: 8px 0 0;
-  color: #5a5a5a;
+  color: #666666;
   font-size: 13px;
+  font-weight: 500;
 }
 
 .official-section {
-  border: 1px solid #e2e2e2;
+  border: 1px solid #e0e0e0;
   border-radius: 6px;
-  margin-bottom: 16px;
-  padding: 14px 16px 8px;
+  margin-bottom: 20px;
+  padding: 18px 20px 12px;
+  background: #ffffff;
 }
 
 .official-section h3 {
-  margin: 0 0 14px;
-  border-bottom: 1px solid #dfdfdf;
+  margin: 0 0 16px;
+  border-bottom: 1px solid #e0e0e0;
   padding-bottom: 8px;
-  color: #1f1f1f;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  color: #212121;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
 }
 
 .official-section-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px 16px;
+  gap: 12px 20px;
 }
 
 .official-field-row {
@@ -82,7 +84,7 @@
 
 .official-label {
   margin: 0;
-  color: #1f1f1f;
+  color: #212121;
   font-size: 13px;
   font-weight: 600;
   line-height: 1.3;
@@ -91,7 +93,7 @@
 .official-label-subtext {
   display: block;
   margin-top: 2px;
-  color: #666666;
+  color: #777777;
   font-size: 11px;
   font-weight: 400;
 }
@@ -101,33 +103,37 @@
 }
 
 .official-input {
-  border: 1px solid #bcbcbc;
+  border: 1px solid #e0e0e0;
   border-radius: 4px;
   box-shadow: none;
-  color: #161616;
+  color: #212121;
+  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
-  min-height: 40px;
-  padding: 8px 10px;
+  min-height: 42px;
+  padding: 8px 12px;
+  transition: all 0.25s ease;
 }
 
 .official-input:focus {
-  border-color: #6d6d6d;
-  box-shadow: 0 0 0 2px rgba(60, 60, 60, 0.08);
+  border-color: #0097a7;
+  box-shadow: 0 0 0 3px rgba(0, 151, 167, 0.12);
+  outline: none;
 }
 
 textarea.official-input {
-  min-height: 72px;
+  min-height: 80px;
   resize: vertical;
 }
 
 .official-file-input {
-  padding: 5px 8px;
+  padding: 6px 10px;
 }
 
 .official-file-name {
   margin: 6px 0 0;
-  color: #474747;
+  color: #0097a7;
   font-size: 12px;
+  font-weight: 600;
 }
 
 .official-placeholder-box {
@@ -135,51 +141,57 @@ textarea.official-input {
   align-items: center;
   justify-content: center;
   min-height: 118px;
-  border: 1px dashed #9a9a9a;
+  border: 1px dashed #e0e0e0;
   border-radius: 4px;
-  color: #6a6a6a;
+  color: #888888;
   font-size: 12px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.5px;
   background: #fafafa;
 }
 
 .official-submit-row {
-  border-top: 1px solid #cfcfcf;
-  margin-top: 18px;
-  padding-top: 16px;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 24px;
+  padding-top: 20px;
   text-align: center;
 }
 
 .official-submit-btn {
-  border: 1px solid #1f1f1f;
+  border: none;
   border-radius: 4px;
-  background: #1f1f1f;
+  background: #d81b60;
   color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.6px;
-  min-width: 220px;
-  padding: 11px 18px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  min-width: 240px;
+  padding: 13px 24px;
   text-transform: uppercase;
+  box-shadow: 0 4px 14px rgba(216, 27, 96, 0.25);
+  transition: all 0.3s ease;
 }
 
 .official-submit-btn:hover,
 .official-submit-btn:focus {
   color: #ffffff;
-  background: #2d2d2d;
-  border-color: #2d2d2d;
+  background: #0097a7;
+  box-shadow: 0 6px 20px rgba(0, 151, 167, 0.35);
+  transform: translateY(-1px);
 }
 
 .application-status {
-  margin-top: 12px;
-  font-size: 13px;
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 600;
   text-align: center;
 }
 
 @media (max-width: 991px) {
   .official-form-sheet {
-    padding: 22px 18px;
+    padding: 24px 20px;
   }
 
   .official-section-grid {
@@ -202,7 +214,7 @@ textarea.official-input {
 
   .official-form-sheet {
     box-shadow: none;
-    border: 1px solid #9f9f9f;
+    border: 1px solid #e0e0e0;
     border-radius: 0;
     padding: 12mm;
   }
