@@ -10,12 +10,20 @@ export const Services = (props) => {
             Professional digital printing and photography services tailored to your needs.
           </p>
         </div>
-        <div className="row">
+
+        <div className="mobile-swipe-hint">
+          <i className="fa fa-hand-o-left"></i>
+          <span>Swipe left &amp; right to explore all services</span>
+          <i className="fa fa-hand-o-right"></i>
+        </div>
+
+        <div className="services-grid">
           {props.data
             ? props.data.map((d, i) => (
-                <div key={`${d.name}-${i}`} className="col-md-4">
-                  {" "}
-                  <i className={d.icon}></i>
+                <div key={`${d.name}-${i}`} className="service-card">
+                  <div className="service-icon-wrap">
+                    <i className={d.icon}></i>
+                  </div>
                   <div className="service-desc">
                     <h3>{d.name}</h3>
                     <p>{d.text}</p>
@@ -28,3 +36,5 @@ export const Services = (props) => {
     </div>
   );
 };
+
+export default Services;

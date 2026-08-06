@@ -8,6 +8,9 @@ export const Header = (props) => {
           <div className="container">
             <div className="row">
               <div className="col-md-8 col-md-offset-2 intro-text">
+                <div className="hero-logo-wrap">
+                  <img src="img/Logo.png" alt="ADL Digihouse Logo" className="hero-logo-img" />
+                </div>
                 <h1>
                   {props.data ? props.data.title : "Loading"}
                   <span></span>

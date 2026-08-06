@@ -89,6 +89,9 @@ export const Contact = (props) => {
             </div>
           </div>
           <div className="col-md-3 col-md-offset-1 contact-info">
+            <div className="contact-logo-wrap">
+              <img src="img/Logo.png" alt="ADL Digihouse Logo" className="footer-logo-img" />
+            </div>
             <div className="contact-item">
               <h3>Contact Info</h3>
               <p>

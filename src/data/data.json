@@ -67,12 +67,17 @@
   ],
   "Services": [
     {
-      "icon": "fa fa-print",
+      "icon": "fa fa-calendar",
+      "name": "Event Management",
+      "text": "Comprehensive event planning, management, and promotional setup services for corporate, institutional, and private events."
+    },
+    {
+      "icon": "fa fa-paint-brush",
       "name": "Screen Printing",
       "text": "High-quality screen printing for T-shirts, uniforms, and promotional items. Durable prints that last long and maintain vibrant colors."
     },
     {
-      "icon": "fa fa-image",
+      "icon": "fa fa-flag",
       "name": "Banner Printing",
       "text": "Custom indoor and outdoor banners in any size. Perfect for events, promotions, and business advertising with weather-resistant materials."
     },
@@ -88,13 +93,8 @@
     },
     {
       "icon": "fa fa-camera",
-      "name": "NIC Photo Services",
-      "text": "Authorized NIC photo taking services that meet government standards. Quick and professional service with instant prints available."
-    },
-    {
-      "icon": "fa fa-plane",
-      "name": "Passport Photos",
-      "text": "Official passport photo services compliant with international standards. Fast service with guaranteed acceptance for visa and passport applications."
+      "name": "NIC & Passport Photo Online",
+      "text": "Authorized online NIC and passport photo capture and digital submission services compliant with official standards."
     },
     {
       "icon": "fa fa-tags",
@@ -112,7 +112,7 @@
       "text": "Custom pin-on badges for events, schools, and organizations. Durable materials and clear printing."
     },
     {
-      "icon": "fa fa-graduation-cap",
+      "icon": "fa fa-shirtsinbulk",
       "name": "T-shirts & Caps",
       "text": "Branded T-shirts and caps with screen printing or heat transfer. Perfect for teams and promotions."
     },
@@ -137,24 +137,9 @@
       "text": "Professional letter heads for businesses with crisp printing and quality paper."
     },
     {
-      "icon": "fa fa-cutlery",
-      "name": "Menu Cards",
-      "text": "Restaurant menu cards with durable lamination and vibrant designs."
-    },
-    {
-      "icon": "fa fa-tag",
-      "name": "Packing Cover Labels",
-      "text": "Custom labels and packing cover prints for retail and logistics."
-    },
-    {
       "icon": "fa fa-camera",
       "name": "Photo Printing & Group Photography",
       "text": "High-quality photo prints and group photography services for events and institutions."
-    },
-    {
-      "icon": "fa fa-book",
-      "name": "Book Covers & Projects",
-      "text": "Design and print book covers and academic projects with premium finishes."
     }
   ],
   "Testimonials": [
