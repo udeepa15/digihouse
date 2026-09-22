@@ -1,10 +1,10 @@
 {
   "Header": {
-    "title": "ADL Digihouse",
-    "paragraph": "Your Trusted Digital Printing Partner - High-Quality Digital Printing Services in Colombo"
+    "title": "ADL Digi House (Pvt) Ltd",
+    "paragraph": "Your trusted digital printing services & high quality entertainment Services in Sri Lanka"
   },
   "About": {
-    "paragraph": "ADL Digihouse is a professional digital printing service provider located in Borella, Colombo. We specialize in high-quality printing solutions including screen printing, banners, mugs, ID cards, and authorized NIC and passport photography services. With years of experience and state-of-the-art equipment, we deliver exceptional results for individuals, businesses, and institutions.",
+    "paragraph": "ADL Digi House (Pvt) Ltd is a professional digital printing service provider located in Borella, Colombo. We specialize in high-quality printing solutions including screen printing, banners, mugs, ID cards, and authorized NIC and passport photography services. With years of experience and state-of-the-art equipment, we deliver exceptional results for individuals, businesses, and institutions.",
     "Why": [
       "High-Quality Prints",
       "Fast Turnaround Time",
@@ -107,9 +107,9 @@
       "text": "Design and print books, leaflets, and brochures with premium paper options and professional binding."
     },
     {
-      "icon": "fa fa-certificate",
-      "name": "Pin-on Badges",
-      "text": "Custom pin-on badges for events, schools, and organizations. Durable materials and clear printing."
+      "icon": "fa fa-plug",
+      "name": "Electronic Items",
+      "text": "Custom printing and branding on electronic items, gadgets, power banks, and tech accessories for promotions and corporate gifts."
     },
     {
       "icon": "fa fa-shirtsinbulk",
@@ -155,7 +155,7 @@
     },
     {
       "img": "img/testimonials/03.jpg",
-      "text": "\"Highly recommend ADL Digihouse for banner printing. Perfect quality for our grand opening event and delivered on time!\"",
+      "text": "\"Highly recommend ADL Digi House (Pvt) Ltd for banner printing. Perfect quality for our grand opening event and delivered on time!\"",
       "name": "Nimal Perera"
     },
     {

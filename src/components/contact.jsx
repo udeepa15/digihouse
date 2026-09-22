@@ -90,7 +90,7 @@ export const Contact = (props) => {
           </div>
           <div className="col-md-3 col-md-offset-1 contact-info">
             <div className="contact-logo-wrap">
-              <img src="img/Logo.png" alt="ADL Digihouse Logo" className="footer-logo-img" />
+              <img src="img/Logo.png" alt="ADL Digi House (Pvt) Ltd Logo" className="footer-logo-img" />
             </div>
             <div className="contact-item">
               <h3>Contact Info</h3>
@@ -130,7 +130,7 @@ export const Contact = (props) => {
                 </span>{" "}
                 {props.data
                   ? props.data.emails
-                    ? props.data.emails.join(", ")
+                    ? props.data.emails.join(" ")
                     : props.data.email
                     ? props.data.email
                     : "loading"
@@ -176,7 +176,7 @@ export const Contact = (props) => {
       <div id="footer">
         <div className="container text-center">
           <p>
-            &copy; 2025 ADL Digihouse. All Rights Reserved.
+            &copy; 2025 ADL Digi House (Pvt) Ltd. All Rights Reserved.
           </p>
           <p style={{marginTop: "10px", fontSize: "14px"}}>
             {props.data ? props.data.address : "No 25, 1st Floor, YMBA Complex, Borella, Colombo 08, Sri Lanka"} | Tel: {props.data

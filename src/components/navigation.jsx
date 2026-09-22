@@ -17,8 +17,8 @@ export const Navigation = () => {
             <span className="icon-bar"></span>
           </button>
           <a className="navbar-brand page-scroll brand-logo-wrap" href="#page-top">
-            <img src="img/Logo.png" alt="ADL Digihouse Logo" className="brand-logo-img" />
-            <span>ADL Digihouse</span>
+            <img src="img/Logo.png" alt="ADL Digi House (Pvt) Ltd Logo" className="brand-logo-img" />
+            <span>ADL Digi House (Pvt) Ltd</span>
           </a>
         </div>
 
